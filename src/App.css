@@ -1,38 +1,74 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.nav {
+  background-color: #18c07f;
+  padding: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.logo {
+  height: 50px;
+  width: auto;
+  padding-right: 800px;
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.nav ul {
+  list-style-type: none;
   display: flex;
-  flex-direction: column;
+  justify-content: flex-end;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.nav li {
+  margin: 0 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nav a{
+  color: rgb(9, 9, 9);
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 0.3s;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+  color: #005500;
+}
+
+.nav button {
+  border: none;
+  border-radius: 12%;
+  background-color: rgb(4, 4, 4);
+  padding: 10px 20px;
+  color: aliceblue;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.nav button:hover {
+  background-color: #333;
+}
+
+.welcome{
+  padding: 0%;
+  margin: 0%;
+  height: 400px;
+  width: 100%;
+  box-shadow: 5px 5px 10px black;
+  background-image: url('/public/Images/welcome.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.welcome h1{
+  padding-top: 100px;
+  padding-left: 100px;
+  font-family: cursive;
+  font-size: 50px;
+  color: aliceblue;
 }
