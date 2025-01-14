@@ -1,47 +1,39 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import "../App.css";
+import React, { useState } from "react";
+import axios from "axios";
 
+function BookingForm() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    date: "",
+    time: "",
+    service: "",
+  });
 
-const BookingForm = () => {
-    const [name, setName] = useState('');
-    const [phone, setPhone] = useState('');
-    const [date, setDate] = useState('');
-    const [time, setTime] = useState('');
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const booking = { name, phone, date, time };
-            await axios.post('/api/bookings', booking);
-            alert('Booking successful');
-        } catch (error) {
-            alert('Failed to book');
-        }
-    };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post("http://localhost:5000/api/bookings", formData);
+      alert("Booking created!");
+    } catch (error) {
+      alert("Error creating booking");
+    }
+  };
 
-    return (
-        <form onSubmit={handleSubmit}>
-            <div>
-                <label>Name:</label>
-                <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
-            </div>
-            <div>
-                <label>Phone:</label>
-                <input type="text" value={phone} onChange={(e) => setPhone(e.target.value)} required />
-            </div>
-            <div>
-                <label>Date:</label>
-                <input type="date" value={date} onChange={(e) => setDate(e.target.value)} required />
-            </div>
-            <div>
-                <label>Time:</label>
-                <input type="time" value={time} onChange={(e) => setTime(e.target.value)} required />
-            </div>
-            <button type="submit">Book Now</button>
-        </form>
-    );
-};
+  return (
+    <form onSubmit={handleSubmit}>
+      <input type="text" name="name" placeholder="Name" onChange={handleChange} />
+      <input type="email" name="email" placeholder="Email" onChange={handleChange} />
+      <input type="date" name="date" onChange={handleChange} />
+      <input type="time" name="time" onChange={handleChange} />
+      <input type="text" name="service" placeholder="Service" onChange={handleChange} />
+      <button type="submit">Book Appointment</button>
+    </form>
+  );
+}
 
 export default BookingForm;
-

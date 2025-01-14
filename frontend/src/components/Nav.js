@@ -8,9 +8,9 @@ const Nav = () => {
       <ul>
       <img src='/Images/logo.webp' alt='Logo' className='logo' />
       <li><Link to='/home'>Home</Link></li>
-      <li><Link to='/about'>About</Link></li>
+      <li><Link to='/about'>BookingList</Link></li>
       <li><Link to='/contact'>Contact</Link></li>
-      <li><Link to='/booking'>Book slot</Link></li>
+      <li><Link to='/booking'>BookingForm</Link></li>
       <li><button><Link to='/login'>Log in</Link></button></li>
       </ul>
     </div>
